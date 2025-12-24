@@ -1,85 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Quote Generator</title>
-    <style>
-      body {
-            font-family: Calibri, Arial, sans-serif;
-            text-align: center;
-            background-color: #FFDEAD;
-            margin: 0;
-            padding: 0;
-        }
-        #quote {
-            margin-top: 10px;
-            font-size: 24px;
-        }
-        #author {
-            font-style: italic;
-            font-weight: bold;
-            margin-top: 20px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Random Quote Generator</title>
+
+  <style>
+    body {
+      font-family: Calibri, Arial, sans-serif;
+      text-align: center;
+      background-color: #FFDEAD;
+      margin: 0;
+      padding: 40px;
+    }
+
+    #quote {
+      font-size: 24px;
+      margin-top: 40px;
+    }
+
+    #author {
+      font-style: italic;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
 </head>
+
 <body>
-    <div id="quote"></div>
-    <div id="author"></div>
 
-    <script>
-        const quotes = [
-            { text: "I will not accept a life I do not deserve.”, author: ““ },
-            { text: “What’s ment for you will never miss you.”, author: ““ },
-            { text: "Authenticity is magnetic.”, author: “” },
-            { text: “Hazlo de corazón.”, author: "" },
-            { text: “Poco a poquito.”, author: "" },
-            { text: “Todo sale.”, author: "" },
-            { text: “Se amable con esa parte de ti que aún esta aprendiendo.”, author: "" },
-            { text: “Si no estuvieras lista, no tendrías la opotunidad.”, author: "" },
-            { text: “Nada es personal.”, author: "" },
-            { text: “Que la actitud de otros no te cambie.”, author: "" },
-            { text: “Croire en soi c´ste déjà presque réussir.”, author: “Victor Hugo” },
-            { text: “The worst enemy to creativity is self-doubt.”, author: “Sylvia Plath” },
-            { text: “Si quieres aprender, equivocate.", author: "" },
-            { text: “Find your peace, and then everything will fall into place.”, author: “Marianne Williamson” },
-            { text: “Se la líder que te hubiera gustado tener”, author: "" },
-            { text: “Most ardently.”, author: "" },
-            { text: “Hungry for life.”, author: "Sade” },
-            { text: “I wish you a kinder sea.”, author: “Emily Dickinson” },
-            { text: “Go for a walk.”, author: "" },
-            { text: “Focus on improving, not proving”, author: "O. Leary" },
-            { text: “Trust in timing.”, author: "" },
-            { text: “It won’t happen overnight. But if you quit it won’t happen at all.”, author: "" },
-            { text: “El dinero va y viene, pero la vida nomas va”, author: "" },
-            { text: “Si tu no lo harías, no lo toleres”, author: "" },
-            { text: “You’re doing great.”, author: "" },
-            { text: “You are capable of more than you think”, author: "" },
-            { text: “Until it’s done, tell none.”, author: "" },
-            { text: “You will be ok, you’re a diva.”, author: "" },
-            { text: “High standards.”, author: "" },
-            { text: “You belong”, author: "" },
-            { text: “Everything I imagine, will be my reality soon”, author: "" },
-            { text: “Speak out”, author: "" },
+  <div id="quote"></div>
+  <div id="author"></div>
 
-            
-        ];
+  <script>
+    const quotes = [
+      { text: "I will not accept a life I do not deserve.", author: "" },
+      { text: "What’s meant for you will never miss you.", author: "" },
+      { text: "Authenticity is magnetic.", author: "" },
+      { text: "Hazlo de corazón.", author: "" },
+      { text: "Poco a poquito.", author: "" },
+      { text: "Todo sale.", author: "" },
+      { text: "Sé amable con esa parte de ti que aún está aprendiendo.", author: "" },
+      { text: "Si no estuvieras lista, no tendrías la oportunidad.", author: "" },
+      { text: "Nada es personal.", author: "" },
+      { text: "Que la actitud de otros no te cambie.", author: "" },
+      { text: "Croire en soi c’est déjà presque réussir.", author: "Victor Hugo" },
+      { text: "The worst enemy to creativity is self-doubt.", author: "Sylvia Plath" },
+      { text: "Si quieres aprender, equivócate.", author: "" },
+      { text: "Find your peace, and then everything will fall into place.", author: "Marianne Williamson" },
+      { text: "Sé la líder que te hubiera gustado tener.", author: "" },
+      { text: "Most ardently.", author: "" },
+      { text: "Hungry for life.", author: "Sade" },
+      { text: "I wish you a kinder sea.", author: "Emily Dickinson" },
+      { text: "Go for a walk.", author: "" },
+      { text: "Focus on improving, not proving.", author: "O. Leary" },
+      { text: "Trust in timing.", author: "" },
+      { text: "You’re doing great.", author: "" },
+      { text: "You belong.", author: "" },
+      { text: "Everything I imagine will be my reality soon.", author: "" },
+      { text: "Speak out.", author: "" }
+    ];
 
-        const quoteElement = document.getElementById('quote');
-        const authorElement = document.getElementById('author');
+    const quoteElement = document.getElementById("quote");
+    const authorElement = document.getElementById("author");
 
-        function generateRandomQuote() {
-            const randomIndex = Math.floor(Math.random() * quotes.length);
-            const randomQuote = quotes[randomIndex];
-            quoteElement.textContent = '"' + randomQuote.text + '"';
-            authorElement.textContent = "- " + randomQuote.author;
-        }
+    function generateRandomQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      const randomQuote = quotes[randomIndex];
 
-        // Initial quote generation
-        generateRandomQuote();
+      quoteElement.textContent = `"${randomQuote.text}"`;
+      authorElement.textContent = randomQuote.author ? `— ${randomQuote.author}` : "";
+    }
 
-        // Update the quote every hour
-        setInterval(generateRandomQuote, 3600000); // 3600000 milliseconds = 1 hour
-    </script>
+    generateRandomQuote();
+    setInterval(generateRandomQuote, 3600000);
+  </script>
+
 </body>
 </html>
