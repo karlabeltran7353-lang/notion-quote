@@ -8,20 +8,28 @@
   <style>
     body {
       font-family: Calibri, Arial, sans-serif;
+      font-style: italic;
       text-align: center;
-      background-color: #FFDEAD;
+      background-color: #ffffff;
       margin: 0;
       padding: 40px;
     }
 
+    .container {
+      border: 2px solid #000000;
+      border-radius: 12px;
+      padding: 40px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
     #quote {
       font-size: 24px;
-      margin-top: 40px;
+      margin-top: 20px;
     }
 
     #author {
-      font-style: italic;
-      font-weight: bold;
+      font-size: 16px;
       margin-top: 20px;
     }
   </style>
@@ -29,8 +37,10 @@
 
 <body>
 
-  <div id="quote"></div>
-  <div id="author"></div>
+  <div class="container">
+    <div id="quote"></div>
+    <div id="author"></div>
+  </div>
 
   <script>
     const quotes = [
